@@ -141,6 +141,29 @@ Si vous rencontrez des problèmes avec Expo :
 2. Effacez le cache (`npx expo start -c`)
 3. Vérifiez que vous avez la dernière version d'Expo CLI et d'Expo Go
 
+### Problèmes spécifiques à iOS
+
+Si vous rencontrez des erreurs sur iOS concernant la barre d'état ou d'autres problèmes d'affichage :
+
+1. **Erreur de barre d'état** : Si vous voyez une erreur mentionnant `UIViewControllerBasedStatusBarAppearance`, assurez-vous que le fichier `app.json` contient la configuration suivante :
+   ```json
+   "ios": {
+     "supportsTablet": true,
+     "infoPlist": {
+       "UIViewControllerBasedStatusBarAppearance": true
+     }
+   }
+   ```
+
+2. **Problèmes d'affichage** : Sur iOS, certains éléments peuvent ne pas s'afficher correctement en raison des différences entre les plateformes. Si vous rencontrez des problèmes :
+   - Essayez de fermer complètement l'application Expo Go et de la redémarrer
+   - Vérifiez que vous utilisez la dernière version d'iOS et d'Expo Go
+   - Si le problème persiste, essayez de construire une version de développement avec `npx expo run:ios`
+
+3. **Problèmes de performance** : Si l'application est lente sur iOS :
+   - Désactivez le mode développeur dans Expo Go
+   - Utilisez une version de développement ou de production plutôt que Expo Go
+
 ## Licence
 
 Ce projet est sous licence MIT.
