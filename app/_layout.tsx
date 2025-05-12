@@ -1,6 +1,7 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack, useRouter, useSegments } from 'expo-router';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { Platform, StatusBar } from 'react-native';
 import 'react-native-reanimated';
@@ -88,6 +89,8 @@ export default function RootLayout() {
                 paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight || 0 : 0
               },
               animation: 'slide_from_right',
+              statusBarStyle: colorScheme === 'dark' ? 'light' : 'dark',
+              statusBarTranslucent: true,
               headerStyle: {
                 backgroundColor: colorScheme === 'dark' ? '#000' : '#fff'
               },
@@ -98,6 +101,7 @@ export default function RootLayout() {
             <Stack.Screen name="auth" options={{ headerShown: false }} />
             <Stack.Screen name="+not-found" />
           </Stack>
+          <ExpoStatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} translucent />
         </AuthGuard>
       </ThemeProvider>
     </AuthProvider>
