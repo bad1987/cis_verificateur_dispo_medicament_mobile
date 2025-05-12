@@ -10,10 +10,7 @@ export default {
   userInterfaceStyle: 'automatic',
   newArchEnabled: true,
   ios: {
-    supportsTablet: true,
-    infoPlist: {
-      UIViewControllerBasedStatusBarAppearance: true
-    }
+    supportsTablet: true
   },
   android: {
     adaptiveIcon: {
